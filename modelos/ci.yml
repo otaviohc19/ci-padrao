@@ -1,0 +1,20 @@
+# Copie para .github/workflows/ci.yml no seu projeto
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verificacao:
+    uses: otaviohc19/ci-padrao/.github/workflows/verificacao.yml@v1
+    # with:
+    #   node-version: '22'
+    #   lighthouse: true          # para sites
+    #   codeql: true              # só em repositório público
+    #   build-env: |              # valores PÚBLICOS para o build (use Variables, não Secrets)
+    #     VITE_API_URL=${{ vars.VITE_API_URL }}
