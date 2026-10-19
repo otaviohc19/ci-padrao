@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -15,6 +16,12 @@ jobs:
     # with:
     #   node-version: '22'
     #   lighthouse: true          # para sites
-    #   codeql: true              # só em repositório público
     #   build-env: |              # valores PÚBLICOS para o build (use Variables, não Secrets)
     #     VITE_API_URL=${{ vars.VITE_API_URL }}
+
+  # Só em repositório PÚBLICO (em privado o CodeQL é pago):
+  # codeql:
+  #   uses: otaviohc19/ci-padrao/.github/workflows/codeql.yml@v1
+  #   permissions:
+  #     contents: read
+  #     security-events: write

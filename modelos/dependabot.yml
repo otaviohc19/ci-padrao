@@ -8,8 +8,12 @@ updates:
     cooldown:
       default-days: 14   # só sugere versões publicadas há 2 semanas ou mais
     groups:
-      dependencias:
-        patterns: ['*']
+      seguras:
+        update-types: [minor, patch]
+    ignore:
+      # versões principais (ex.: Vite 5 -> 7) só quando decidir migrar
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
     open-pull-requests-limit: 5
 
   - package-ecosystem: github-actions
